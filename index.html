@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Perguntas e Respostas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>PadagoQuiz!!!</h1>
+    </header>
+    <div class="peixe-1">
+        <img src="img/polvo.png" alt="">
+    </div>
+    <div id="placar">
+        <p class="jogador-1">Jogador 1: <span id="pontos-jogador-1">0</span> pontos</p>
+        <p class="jogador-2">Jogador 2: <span id="pontos-jogador-2">0</span> pontos</p>
+    </div>
+
+    <div id="pergunta">
+        <p id="mensagem" class="jogador-vez">Jogador 1, é a sua vez!</p>
+        <h2 id="card-titulo" class="card-titulo"></h2>
+        <ul id="alternativas-lista" class="alternativas-lista"></ul>
+        <div id="resposta-container" class="resposta-container"></div>
+    </div>
+    <div class="peixes">
+        <img src="img/peixe2.png" alt="">
+        <img src="img/peixe1.png" alt="">
+    </div>   
+    <!-- Card para o vencedor da jogada-->
+    <div id="ranking-card" style="display: none;">
+        <h2>Ranking de Vencedores</h2>
+        <ul id="ranking-list">
+          <!-- Aqui você pode adicionar os itens do ranking -->
+        </ul>
+    </div>
+
+    <script src="card-script.js"></script>
+</body>
+</html>
