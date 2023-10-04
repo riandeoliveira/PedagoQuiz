@@ -29,6 +29,10 @@ li {
   cursor: pointer;
 }
 
+input[type="radio"] {
+  opacity: 0;
+}
+
 .container {
   align-items: center;
   display: flex;
@@ -102,7 +106,6 @@ li {
 .alternativa-texto {
   cursor: pointer;
   display: block;
-  text-align: start;
   width: 100%;
 }
 
