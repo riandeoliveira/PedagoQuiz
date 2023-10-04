@@ -9,6 +9,7 @@ const mensagemElement = document.getElementById("mensagem");
 const pontosJogador1Element = document.getElementById("pontos-jogador-1");
 const pontosJogador2Element = document.getElementById("pontos-jogador-2");
 const cardelemento = document.getElementById("vencedor-card");
+const botaoContainerElement = document.getElementById("botao-container");
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -782,6 +783,7 @@ function avancarPergunta() {
   // Limpa os elementos HTML para criar outros com a pergunta atual
   alternativasListaElement.innerHTML = "";
   respostaContainerElement.innerHTML = "";
+  botaoContainerElement.innerHTML = "";
 
   if (indicePerguntaAtual + 1 === MAX_PERGUNTAS) {
     // Fim do jogo
@@ -872,11 +874,9 @@ function verificaAlternativa(alternativa) {
 
   proximaPerguntaBotao.addEventListener("click", avancarPergunta);
 
-  proximaPerguntaContainer.appendChild(proximaPerguntaBotao);
-
-  respostaContainerElement.appendChild(respostaMarkElement);
+  botaoContainerElement.appendChild(respostaMarkElement);
+  botaoContainerElement.appendChild(proximaPerguntaBotao);
   respostaContainerElement.appendChild(respostaCorretaElement);
-  respostaContainerElement.appendChild(proximaPerguntaContainer);
 }
 
 /**
