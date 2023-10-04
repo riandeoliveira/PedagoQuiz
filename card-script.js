@@ -203,7 +203,7 @@ const perguntas = [
       {
         id: 4,
         titulo:
-          "Realizar não apenas aulas demosntartivas, mas também cultos de casa religião tratada em aula",
+          "Realizar não apenas aulas demonstrativas, mas também cultos de casa religião tratada em aula",
         correta: false,
       },
     ],
@@ -447,7 +447,7 @@ const perguntas = [
       {
         id: 3,
         titulo:
-          "Após a realização dos estágio, assim ja tendo adiquirido alguma prática/experiência",
+          "Após a realização dos estágio, assim ja tendo adquirido alguma prática/experiência",
         correta: false,
       },
       {
@@ -579,7 +579,7 @@ const perguntas = [
       {
         id: 4,
         titulo:
-          "No curso de pedagogia aprendemos como realizar recuros além do quadro",
+          "No curso de pedagogia aprendemos como realizar recursos além do quadro",
         correta: false,
       },
     ],
@@ -689,12 +689,12 @@ const perguntas = [
       },
       {
         id: 3,
-        titulo: "Deve interpretar o texto, sem necessesidade de uma reflexão. ",
+        titulo: "Deve interpretar o texto, sem necessidade de uma reflexão. ",
         correta: false,
       },
       {
         id: 4,
-        titulo: "Ler e filtrar as informaçõs contidas no texto apenas",
+        titulo: "Ler e filtrar as informações contidas no texto apenas",
         correta: false,
       },
     ],
@@ -718,8 +718,6 @@ const perguntas = [
 
 shuffleArray(perguntas); // Embaralhe o array de perguntas após defini-lo
 
-const MAX_PERGUNTAS = 10;
-
 let indicePerguntaAtual = 0; // Índice da pergunta exibida atualmente
 let perguntaAtual = perguntas[indicePerguntaAtual]; // Dados da pergunta atual
 
@@ -735,14 +733,15 @@ function alternarJogador() {
 function atualizarPlacar() {
   pontosJogador1Element.textContent = pontosJogador1;
   pontosJogador2Element.textContent = pontosJogador2;
+  verificarFimDoJogo();
 }
-function verificarFimDoJogo() {
-  if (pontosJogador1 >= pontosNecessarios) {
-    mostrarVencedor(1);
-  } else if (pontosJogador2 >= pontosNecessarios) {
-    mostrarVencedor(2);
-  }
-}
+// function verificarFimDoJogo() {
+//   if (pontosJogador1 >= pontosNecessarios) {
+//     mostrarVencedor(1);
+//   } else if (pontosJogador2 >= pontosNecessarios) {
+//     mostrarVencedor(2);
+//   }
+//}
 const pontosNecessarios = 5; // Altere para 5 pontos
 
 function verificarFimDoJogo() {
@@ -785,30 +784,17 @@ function avancarPergunta() {
   respostaContainerElement.innerHTML = "";
   botaoContainerElement.innerHTML = "";
 
-  if (indicePerguntaAtual + 1 === MAX_PERGUNTAS) {
+  indicePerguntaAtual++;
+  if (indicePerguntaAtual >= perguntas.length) {
     // Fim do jogo
     mensagemElement.textContent = "Fim do jogo!";
-    cardTituloElement.textContent = "";
-
-    if (pontosJogador1 > pontosJogador2) {
-      cardTituloElement.textContent = "O Jogador 1 é o Vencedor!";
-    }
-
-    if (pontosJogador2 > pontosJogador1) {
-      cardTituloElement.textContent = "O Jogador 2 é o Vencedor!";
-    }
-
-    if (pontosJogador1 === pontosJogador2) {
-      cardTituloElement.textContent = "Houve um empate!";
-    }
-  } else {
-    indicePerguntaAtual++;
-
-    perguntaAtual = perguntas[indicePerguntaAtual];
-
-    renderizaCard();
-    alternarJogador();
+    return;
   }
+
+  perguntaAtual = perguntas[indicePerguntaAtual];
+
+  renderizaCard();
+  alternarJogador();
 }
 
 /**
